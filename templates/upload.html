@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+  {% block body %}
+  <section id="hero">
+    <div class="login-container justify-content-center">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+               {{form.as_p}}
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+   
+ </div></section> 
+
+{% endblock %}
+<!-- 
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+          </form>
+        
+          
+    </body>
+</html> -->

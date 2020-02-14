@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+  {% block body %}
+  <section id="hero">
+    <div class="login-container">
+      <h1>Login</h1>
+
+            <form method="POST">
+                {% csrf_token %}
+                <label class="login-label">{{form.username.label}}</label>
+                {{form.username}}
+                <label  class="login-label">{{form.password.label}}</label>
+                {{form.password}}
+                <input type="submit" class="btn btn-primary up-btn"/>
+            </form>
+            <br>
+          <p>if not register : <a href="{% url 'core:register' %}">Sign Up</a></p>
+ </div></section> 
+
+{% endblock %}

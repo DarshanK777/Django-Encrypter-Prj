@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+  {% block body %}
+  <section id="hero">
+    
+    <div class="download-container ">
+     
+      <div class="container">
+        <h1>Download</h1>
+        <br>
+        
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <table class="table  table-bordered table-dark">
+                <thead >
+                  <tr>
+                   
+                    <th scope="col">FileName</th> 
+                    <th scope="col">Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  {% for i in file_list %}
+                  <tr>
+                    
+                    <td>{{ i }}</td>
+                    <td><button type="submit" name="toDownload" class="btn btn-primary" value={{ i }}> Download </button></td>
+                  </tr>
+                  
+                  {% endfor %}
+                </tbody>
+              </table>
+            
+
+        
+        
+        </form>
+    </div>
+   
+ </div></section> 
+
+{% endblock %}

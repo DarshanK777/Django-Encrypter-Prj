@@ -1,0 +1,56 @@
+{% extends 'index.html' %}
+    
+  <!--==========================
+    Hero Section
+  ============================-->
+
+  {% block body %}
+  <section id="hero">
+    <div class="hero-container">
+      <h1>EnCrypter</h1>
+      <h2>It Stores your file on server with encryption and Download decrypted file</h2>
+      
+    </div>
+  </section>
+  <!-- #hero -->
+
+ 
+  <main id="main">
+ 
+    {% if user.is_authenticated %}
+    <section id="upload">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6 content order-lg-1 order-2 up-form">
+            <form method = "POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <label class="up-lbl"><h2>Upload the File Here</h2>
+              <div class="custom-file">
+               {{ form.document }}
+               
+                <label class="custom-file-label" for="customFile">Choose file</label>
+                <button class="btn btn-primary up-btn" type="submit">Submit</button>
+              </div>
+            </form>
+            
+
+          
+
+      </div>
+    </section><!-- #about -->
+    {% else %}
+    <section id="login">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-6 content order-lg-1 order-2 up-form">
+                <label class="up-lbl"> <h1>Login To Proceed</h1> </label>
+            <button class="btn btn-primary up-btn"><a href="{% url 'core:login' %}" style="color: aliceblue;">Login</a></button>
+            </div>
+        </section>
+    {% endif %}
+
+  </main>
+
+  {% endblock %}

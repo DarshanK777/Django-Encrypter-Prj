@@ -1,0 +1,26 @@
+
+
+{% extends 'index.html' %}
+
+  {% block body %}
+  <section id="hero">
+    <div class="login-container ">
+      <h1>Sign Up</h1>
+            <form method="POST">
+                {% csrf_token %}
+                <label class="login-label">{{form.username.label}}</label>
+                {{form.username}}
+                <label class="login-label">{{form.email.label}}</label>
+                {{form.email}}
+                <label  class="login-label">{{form.password.label}}</label>
+                {{form.password}}
+                <label  class="login-label">{{form.password2.label}}</label>
+                {{form.password2}}
+                <label  class="login-label">{{form.secret_key.label}}</label>
+                {{form.secret_key}}
+                <input type="submit" class="btn btn-primary up-btn"/>
+            </form>
+   
+ </div></section>
+
+{% endblock %}
